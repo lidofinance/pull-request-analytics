@@ -2,7 +2,7 @@ import { encrypt, getMultipleValuesInput, getValueAsIs } from "../common/utils";
 import { mixpanel } from "./mixpanel";
 
 export const sendActionRun = () => {
-  if (getValueAsIs("ALLOW_ANALYTICS") === "true") {
+  if (getValueAsIs("ALLOW_ANALYTICS") === "false") {
     mixpanel.track("Action run with params", {
       distinct_id: encrypt(
         getMultipleValuesInput("ORGANIZATIONS")[0] ||
