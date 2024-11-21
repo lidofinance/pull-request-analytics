@@ -24,9 +24,9 @@ jobs:
         with:
           # 🚨 MUST BE CI TOKEN NOT PERSONAL (works by default, you don't need to add anything)
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_OWNER_FOR_ISSUE: lidofinance
-          GITHUB_REPO_FOR_ISSUE: repo-name
-          GITHUB_OWNERS_REPOS: lidofinance/repo-name
+          GITHUB_OWNER_FOR_ISSUE: lidofinance/lido-qa
+          GITHUB_REPO_FOR_ISSUE: lido-autotests
+          GITHUB_OWNERS_REPOS: lidofinance/lido-qa/lido-autotests
           CORE_HOURS_START: "0:00"
           CORE_HOURS_END: "23:59"
           TIMEZONE: "Europe/London"
