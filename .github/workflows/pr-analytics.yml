@@ -25,8 +25,8 @@ jobs:
           # 🚨 MUST BE CI TOKEN NOT PERSONAL (works by default, you don't need to add anything)
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_OWNER_FOR_ISSUE: lidofinance
-          GITHUB_REPO_FOR_ISSUE: reef-knot
-          GITHUB_OWNERS_REPOS: lidofinance/reef-knot
+          GITHUB_REPO_FOR_ISSUE: wallets-testing-modules
+          GITHUB_OWNERS_REPOS: lidofinance/wallets-testing-modules
           CORE_HOURS_START: "0:00"
           CORE_HOURS_END: "23:59"
           TIMEZONE: "Europe/London"
