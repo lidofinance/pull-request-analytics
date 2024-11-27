@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: "Run script for analytics"
         # 🚨 MUST USE COMMIT HASH AS VERSION
-        uses: AlexSim93/pull-request-analytics-action@2bb1d1a7aef45d73bcda7b403f64396da0bb6d42
+        uses: lidofinance/pull-request-analytics@2bb1d1a7aef45d73bcda7b403f64396da0bb6d42
         with:
           # 🚨 MUST BE CI TOKEN NOT PERSONAL (works by default, you don't need to add anything)
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
