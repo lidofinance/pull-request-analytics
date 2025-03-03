@@ -24,6 +24,8 @@ jobs:
         with:
           app_id: ${{ vars.APP_ID }}
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          repositories: >-
+            ["lidofinance/lido-autotests"]
 
       - name: "Run script for analytics"
         # 🚨 MUST USE COMMIT HASH AS VERSION
