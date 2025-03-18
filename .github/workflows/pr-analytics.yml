@@ -25,7 +25,7 @@ jobs:
           app_id: ${{ vars.APP_ID }}
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
           repositories: >-
-            ["lidofinance/lido-autotests"]
+            ["lidofinance/lido-autotests", "lidofinance/landing"]
 
       - name: "Run script for analytics"
         # 🚨 MUST USE COMMIT HASH AS VERSION
@@ -34,8 +34,8 @@ jobs:
           # 🚨 MUST BE CI TOKEN NOT PERSONAL (works by default, you don't need to add anything)
           GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
           GITHUB_OWNER_FOR_ISSUE: lidofinance
-          GITHUB_REPO_FOR_ISSUE: lido-autotests
-          GITHUB_OWNERS_REPOS: lidofinance/lido-autotests
+          GITHUB_REPO_FOR_ISSUE: landing
+          GITHUB_OWNERS_REPOS: lidofinance/landing
           CORE_HOURS_START: "0:00"
           CORE_HOURS_END: "23:59"
           TIMEZONE: "Europe/London"
