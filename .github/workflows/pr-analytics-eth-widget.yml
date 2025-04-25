@@ -1,0 +1,43 @@
+name: "PR Analytics"
+on:
+  workflow_dispatch:
+    inputs:
+      report_date_start:
+        description: "Report date start(d/MM/yyyy)"
+      report_date_end:
+        description: "Report date end(d/MM/yyyy)"
+
+# 🚨 MUST BE CONFIGURED
+permissions:
+  issues: write
+  contents: read
+  pull-requests: read
+
+jobs:
+  create-report:
+    name: "Create report"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Generate a token"
+        id: generate-token
+        uses: lidofinance/github-app-token@32691ba7c9e7063bd457bd8f2a5703138591fa58 # v1.9.0
+        with:
+          app_id: ${{ vars.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          repositories: >-
+            ["lidofinance/lido-autotests", "lidofinance/landing", "lidofinance/ethereum-staking-widget"]
+
+      - name: "Run script for analytics"
+        # 🚨 MUST USE COMMIT HASH AS VERSION
+        uses: lidofinance/pull-request-analytics@2bb1d1a7aef45d73bcda7b403f64396da0bb6d42
+        with:
+          # 🚨 MUST BE CI TOKEN NOT PERSONAL (works by default, you don't need to add anything)
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+          GITHUB_OWNER_FOR_ISSUE: lidofinance
+          GITHUB_REPO_FOR_ISSUE: pull-request-analytics
+          GITHUB_OWNERS_REPOS: lidofinance/ethereum-staking-widget
+          CORE_HOURS_START: "0:00"
+          CORE_HOURS_END: "23:59"
+          TIMEZONE: "Europe/London"
+          REPORT_DATE_START: ${{ inputs.report_date_start }}
+          REPORT_DATE_END: ${{ inputs.report_date_end }}
