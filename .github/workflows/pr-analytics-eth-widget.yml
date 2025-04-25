@@ -1,4 +1,4 @@
-name: "PR Analytics"
+name: "PR Analytics ETH widget"
 on:
   workflow_dispatch:
     inputs:
